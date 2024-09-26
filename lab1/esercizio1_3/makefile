@@ -6,3 +6,6 @@ es1_3.o: es1_3.cpp
 
 lib1_3.o: lib1_3.cpp
 	g++ -c lib1_3.cpp -o lib1_3.o
+
+clean:
+	rm *.o *.x

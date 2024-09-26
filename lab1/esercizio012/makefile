@@ -9,3 +9,6 @@ es012.o: es012.cpp
 
 ../../lib/stats/stats.o: ../../lib/stats/stats.cpp
 	g++ -c ../../lib/stats/stats.cpp -o ../../lib/stats/stats.o
+
+clean:
+	rm *.o *.x
