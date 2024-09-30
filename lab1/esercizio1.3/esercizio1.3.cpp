@@ -2,7 +2,7 @@
 #include <cstdlib>
 #include <fstream>
 #include <cmath>
-#include "lib1_3.h"
+#include "funzioni.h"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ int main(int argc, char *argv[]){
     
     //gestisci input
     if (argc < 3 ) {
-        cerr << "Error: exceeded input variables. n_elements file_name\n";
+        cerr << "Error: wrong input! <n_elements> <file_name>\n";
         return 1;
     }
 

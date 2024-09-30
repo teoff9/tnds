@@ -1,4 +1,4 @@
-#include "lib1_3.h"
+#include "funzioni.h"
 #include <cmath>
 #include <iostream>
 #include <fstream>
