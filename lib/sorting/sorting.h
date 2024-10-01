@@ -1,3 +1,5 @@
+#pragma once
+
 //27.10.23 by Matteo Fava
 //library containing sorting algorithms
 

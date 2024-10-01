@@ -1,3 +1,5 @@
+#pragma once
+
 //24.10.23 by Matteo Fava
 
 //Libreria di statistica
