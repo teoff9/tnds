@@ -10,6 +10,7 @@ class Vect {
         Vect(int); //costruttore
         ~Vect(); //distruttore
         Vect(const Vect&); //costruttore da elemento
+        Vect(Vect&& V); //move constructor
 
         double& operator[](int i) const;
         Vect& operator=(const Vect&);

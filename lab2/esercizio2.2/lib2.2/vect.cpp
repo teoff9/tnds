@@ -35,6 +35,15 @@ Vect::Vect(const Vect& V) {
     }
 }
 
+//move constructor
+Vect::Vect(Vect &&V) {
+    n = V.n;
+    v = V.v; //copia indirizzo di memoria
+    //pulisci V
+    V.n = 0;
+    V.v = nullptr;
+}
+
 //operator []
 double& Vect::operator[](int i) const{
     crash_if_invalid_index(i);
