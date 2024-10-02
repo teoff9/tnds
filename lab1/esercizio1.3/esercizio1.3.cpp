@@ -2,7 +2,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <cmath>
-#include "funzioni.h"
+#include <cassert>
+#include "lib1.3/funzioni.h"
 
 using namespace std;
 
@@ -35,7 +36,7 @@ int main(int argc, char *argv[]){
 
     //calcola media e varianza
     double mean = media_double(dati, n_dati);
-    double varianza = pow(devstd_double(dati, n_dati, mean),2);
+    double varianza = pow(devstd_double(dati, n_dati),2);
 
     //crea una copia dei dati
     double* new_dati = new double[n_dati];

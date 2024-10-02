@@ -6,7 +6,7 @@ double mediana_double(double data[], int used);
 //dev. std. di array di double con int used come numero di dati usati
 //data: array di dati
 //used: numero di dati usati nell'array
-double devstd_double(double data[], int used, double media);
+double devstd_double(double data[], int used);
 
 //dev. std. di array di double con double used come numero di dati usati
 //data: array di dati

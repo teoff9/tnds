@@ -14,22 +14,24 @@ double mediana_double(double data[], int used){
     }
 }
 
-double devstd_double(double data[], int used, double media){
-    double numeratore = 0;
-    for (int i = 0; i < used; i++){
-        numeratore += pow((data[i]-media), 2);
+double devstd_double(double data[], int used){
+    if (used == 0) return 0;
+    double var = 0;
+    double m = media_double(data, used);
+    for (int i = 0; i < used; i++) {
+        var = ((double)i*var + pow(data[i]-m, 2))/(double)(i+1);
     }
-    return sqrt(numeratore/(used-1));
+    return sqrt(var);
 }
 
 
 double media_double(double data[], int used){
-    double sum = 0;
-    for (int i=0; i <used; i++){
-        sum += data[i];
+    if (used == 0) return 0;
+    double m = 0;
+    for (int i = 0; i < used; i++){
+        m = ((double)i * m + data[i])/(double)(i+1);
     }
-
-    return sum/used;
+    return m;
 }
 
 int pos_of_min_double(double data[], int i, int j){
@@ -73,7 +75,7 @@ int count_file_elements(const char* file_name){
 void print(const char* file_name, double* data, int n_dati){
     ofstream output(file_name);
     for (int i = 0; i<n_dati; i++){
-        output << data[i] << endl;
+        output << fixed << setprecision(5) << data[i] << endl;
     }
     output.close();
 }
