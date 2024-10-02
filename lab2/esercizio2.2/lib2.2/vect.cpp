@@ -61,6 +61,14 @@ Vect& Vect::operator=(const Vect& V){
     return *this;
 }
 
+Vect& Vect::operator=(Vect&& V) {
+    n = V.size();
+    v = V.v;
+    V.n = 0;
+    V.v = nullptr;
+    return *this;
+}
+
 //restituisce n
 int Vect::size() const {
     return n;

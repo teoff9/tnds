@@ -14,6 +14,7 @@ class Vect {
 
         double& operator[](int i) const;
         Vect& operator=(const Vect&);
+        Vect& operator=(Vect&&); //move assignement
 
         int size() const; //restituisce n
         void set_element(int, double); //set di un elemento

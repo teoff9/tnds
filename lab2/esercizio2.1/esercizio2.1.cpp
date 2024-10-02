@@ -5,6 +5,8 @@
 #include "cassert"
 using namespace std;
 
+Vect prova();
+
 int main () {
     //ES 2.0
     Vect vnull;
@@ -56,8 +58,16 @@ int main () {
     v[0] = 5;
     assert(v[0] == 5);
 
-    cout << " all tests passed!" << endl;
+    Vect a;
+    a = prova();
+    assert(a.size() == 5);
+    
 
 
     return 0;
+}
+
+Vect prova(){
+    Vect n(5);
+    return n;
 }
