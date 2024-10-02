@@ -19,9 +19,11 @@ class Vect {
         void set_element(int, double); //set di un elemento
         double get_element(int) const; //restituisci un elemento
         void swap(int, int); //swap di due elementi
+        void sort(); //sorta array
 
     private:
         int n; //size di v
         double* v; //array allocato dinamicamente
         void crash_if_invalid_index(int) const; //check per validita di un index
+        int pos_of_min(int) const; //trova indice del minore elemento a partire da indice i
 };

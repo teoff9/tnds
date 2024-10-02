@@ -87,6 +87,27 @@ void Vect::swap(int i, int j){
     v[j] = tmp;
 }
 
+//sort di array
+void Vect::sort() {
+    for (int i = 0; i < n-1; i++){
+        int k = pos_of_min(i);
+        swap(k,i);
+    }
+}
+
+int Vect::pos_of_min(int i) const {
+    int k = 0;
+    double min = v[i];
+    for(i; i<n; i++){
+        if (v[i]<= min){
+            k = i;
+            min = v[i];
+        }
+    }
+
+    return k;
+}
+
 //crash if index is not correct
 void Vect::crash_if_invalid_index(int i) const {
     if (i < 0 || i > n) {
