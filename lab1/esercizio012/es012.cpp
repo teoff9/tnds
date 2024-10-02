@@ -4,8 +4,8 @@
 #include <cstdlib>
 #include <fstream>
 #include <cmath>
-#include "../../lib/stats/stats.h"
-#include "../../lib/sorting/sorting.h"
+#include "lib012/stats/stats.h"
+#include "lib012/sorting/sorting.h"
 
 using namespace std;
 
