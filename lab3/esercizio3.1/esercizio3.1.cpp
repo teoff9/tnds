@@ -17,8 +17,8 @@ int main(int argc, char* argv[]) {
         cerr << "Wrong inputs: <n_elements> <file_name>\n";
         exit(-1);
     }
-    int n_dati = stoi(argv[1]);
-    char* file_name = argv[2];
+    int n_dati{stoi(argv[1])};
+    char* file_name{argv[2]};
 
     //carica su un Vect i dati
     int n = count_file_elements<double>(file_name);
@@ -26,7 +26,7 @@ int main(int argc, char* argv[]) {
         cerr << "Error: number of elements in file is lower than the one requested." << endl;
         return -1;
     }
-    vector<double> dati = file_to_vect<double>(file_name, n);
+    vector<double> dati{file_to_vect<double>(file_name, n)};
     
     //media, varianza, mediana
     cout << "Media: " << average(dati) << endl;
