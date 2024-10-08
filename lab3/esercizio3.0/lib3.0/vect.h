@@ -132,7 +132,7 @@ template <typename T> void Vect<T>::sort() {
 template <typename T> int Vect<T>::pos_of_min(int i) const {
     int k = 0;
     T min = v[i];
-    for(i; i<n; i++){
+    for(;i<n; i++){
         if (v[i]<= min){
             k = i;
             min = v[i];

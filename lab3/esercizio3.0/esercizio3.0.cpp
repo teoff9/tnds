@@ -35,7 +35,7 @@ int main(int argc, char* argv[]) {
     cout << "Varianza: " << varianza(dati) << endl;
     cout << "Mediana: " << mediana(dati) << endl;
 
-    //stampa il vettore ordinato
+    //ordina il vettore
     dati.sort();
 
     //stampa il vettore ordinato su file di output e su terminal
