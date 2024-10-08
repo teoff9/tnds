@@ -16,6 +16,7 @@ void test_sorting() {
     d[0] = 1.5; d[1] = 0.5; d[2] = 3; d[3] = 0.25;
     d.sort();
     for (int i = 0; i < d.size()-1; i++) {assert(d[i] < d[i+1]);};
+    cout << "Test sorting: passed!\n";
 }
 
 void test_statistical_functions() {
@@ -27,4 +28,6 @@ void test_statistical_functions() {
     assert(is_close(varianza(d), 2));
     //mediana
     assert(is_close(mediana(d), 3));
+
+    cout << "Statistical test: passed!\n";
 }
