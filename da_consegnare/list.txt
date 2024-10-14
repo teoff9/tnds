@@ -1,2 +1,5 @@
 esercizio1.3
 esercizio2.2
+esercizio3.0
+esercizio3.1
+esercizio3.2

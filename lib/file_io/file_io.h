@@ -1,15 +1,21 @@
-//01/10/2024 by Matteo Fava
-//funzione per gestire input
+//14.10.24 by Matteo Fava
+//Funzioni di input e output da file
 
 #pragma once
 #include <vector>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 using namespace std;
 
+//Count data in a file
 template <typename T> int count_file_elements(const char* file_name);
 
+//Load in a vector the first n elements of a file
 template <typename T> vector<T> file_to_vect(const char* file_name, int n);
+
+//Print vector to file with precision m
+template <typename T> void print(vector<T>& v, const char* file_name, int precision);
 
 
 template <typename T> int count_file_elements(const char* file_name){
@@ -40,4 +46,11 @@ template <typename T> vector<T> file_to_vect(const char* file_name, int n) {
         i ++;
     }
     return w;
+}
+
+
+template <typename T> void print(vector<T>& v, const char* file_name, int precision){
+    ofstream f(file_name);
+    for (int i{0}; i<(int)v.size(); i++){f << fixed << setprecision(precision) v[i] << endl;}
+    f.close();
 }
