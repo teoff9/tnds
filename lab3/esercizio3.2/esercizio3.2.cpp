@@ -31,7 +31,7 @@ int main(int argc, char* argv[]) {
     vector<double> v{file_to_vect<double>(file_name, n)};
 
     //crea istogramma
-    TH1F histo{"histo", "histo", 100, -10, 100};
+    TH1F histo{"histo", "histo", 100, -20, 20};
     histo.StatOverflows(true);
 
     for (int k{}; k < (int)v.size(); k++) {
