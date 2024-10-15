@@ -17,6 +17,8 @@ template <typename T> vector<T> file_to_vect(const char* file_name, int n);
 //Print vector to file with precision m
 template <typename T> void print(vector<T>& v, const char* file_name, int precision);
 
+//Load all the file to a vect
+template <typename T> vector<T> file_to_vect(const char* file_name);
 
 template <typename T> int count_file_elements(const char* file_name){
     ifstream input(file_name);
@@ -53,4 +55,20 @@ template <typename T> void print(vector<T>& v, const char* file_name, int precis
     ofstream f(file_name);
     for (int i{0}; i<(int)v.size(); i++){f << fixed << setprecision(precision) v[i] << endl;}
     f.close();
+}
+
+template <typename T> vector<T> file_to_vect(const char* file_name){
+    int n = count_file_elements<T>(file_name);
+    ifstream input(file_name);
+    if (!input) {
+        cerr << "Error: failed to load file " << file_name << endl;
+        exit(-1);
+    }
+    vector<T> w(n);
+    int i{0};
+    while (!input.eof() && i < n) {
+        input >> w[i];
+        i ++;
+    }
+    return w;
 }
