@@ -1,5 +1,7 @@
-esercizio1.3
-esercizio2.2
-esercizio3.0
-esercizio3.1
-esercizio3.2
+lab1/esercizio1.3
+lab2/esercizio2.2
+lab3/esercizio3.0
+lab3/esercizio3.1
+lab3/esercizio3.2
+lab4/esercizio4.2
+lab5/esercizio5.3
