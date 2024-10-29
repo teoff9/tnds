@@ -40,7 +40,7 @@ class Bisection : public Solver {
 };
 
 double Bisection::find_root(Function &f, double x_min, double x_max, double _prec = 1e-3, int _n_max=100) {
-    if (sign(f(x_min)*sign(x_max) > 0)) {
+    if (sign(f(x_min)*sign(f(x_max)) > 0)) {
         throw -1;
     }
     n_max = _n_max;
