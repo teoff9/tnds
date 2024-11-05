@@ -1,6 +1,5 @@
 //05.11.24 by Matteo Fava 
 
-#include "lib7.0/gplot++.h"
 #include "lib7.0/integral.h"
 #include <ostream>
 #include <cmath>
