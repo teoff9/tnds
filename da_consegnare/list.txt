@@ -5,3 +5,7 @@ lab3/esercizio3.1
 lab3/esercizio3.2
 lab4/esercizio4.2
 lab5/esercizio5.3
+lab6/esercizio6.2
+lab6/esercizio6.3
+lab7/esercizio7.1
+lab7/esercizio7.2
