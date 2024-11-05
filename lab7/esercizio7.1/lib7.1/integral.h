@@ -31,25 +31,21 @@ class Integral {
 
 };
 
-//Integrale Midpoint
-class MidPoint : public Integral {
+//Integrale Simpson
+class Simpson : public Integral {
     public:
-        MidPoint() : Integral() {};
+        Simpson() : Integral() {};
+    
     private:
-        virtual double calculate(int N, function<double (double)> f) override {
-            if (N < 0) {
-                cerr << "N steps can't be less than 0!\n";
-                exit(-1);
-            }
-            //Step size
-            h = (b-a)/N;
-            //Accumulate
-            double acc{0};
-            for (int i = 0; i < N; i++) {
-                acc += f( a + h*(i + 0.5) );
-            }
+        virtual double calculate(int N, function<double (double)> f) {
+            //FUNZIONA SOLO CON N PARI
+            if (N%2 == 1) N = N+1;
 
-            //Return integral
-            return h*acc;
+            h = (b-a)/N;
+            double acc{ f(a) + f(b) };
+            for (int i = 1; i< N; i++) {
+                acc += 2.0* (1.0 + i%2)*f( a + i * h );
+            }
+            return h * acc / 3.0;
         }
 };
