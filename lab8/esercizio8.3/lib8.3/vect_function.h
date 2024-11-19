@@ -3,8 +3,11 @@
 #pragma once
 
 #include "geom.h"
+#include <cmath>
 #include <array>
 using namespace std;
+
+const double g = 9.81;
 
 
 //FUNZIONE VETTORIALE BASE
@@ -12,7 +15,6 @@ template <size_t n> class VectFunction {
     public:
         virtual array<double, n> eval(double, const array<double, n>&) const = 0;
 };
-
 
 //OSCILLATORE ARMONICO 1 DIMENSIONALE
 class OscillatoreArmonico : public VectFunction<2> {
