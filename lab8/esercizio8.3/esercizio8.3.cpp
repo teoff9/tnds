@@ -9,10 +9,15 @@
 #include <vector>
 using namespace std;
 
+double interp(double x0, double y0, double x1, double y1, double y);
+
+void test_interp();
+
 int main() {
     //tests
     test_array_operations();
     test_rk4();
+    test_interp();
 
     //variabili
     double theta0{0.1};
@@ -35,7 +40,7 @@ int main() {
             x = rk.step(t, h, x, p);
             t = t+h;
         }
-        t = t + v *h/(v-x[1]);
+        t = interp( t-h,v, t, x[1], 0.0);
         tx.push_back(theta);
         y.push_back(2.0*t);
     }
@@ -49,4 +54,17 @@ int main() {
     cout << "Created periodo.png\n";
 
     return 0;
+}
+
+double interp(double x0, double y0, double x1, double y1, double y) {
+    return x0+(x0-x1)/(y0-y1)*(y-y0);
+}
+
+void test_interp() {
+    double p1x{-0.4};
+    double p1y{-0.7};
+    double p2x{0.5};
+    double p2y{0.8};
+    assert(is_close(interp(p1x, p1y, p2x, p2y, 0.3), 0.2));
+    cout << "Test passed for interp!\n";
 }

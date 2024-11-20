@@ -9,3 +9,6 @@ lab6/esercizio6.2
 lab6/esercizio6.3
 lab7/esercizio7.1
 lab7/esercizio7.2
+lab8/esercizio8.2
+lab8/esercizio8.3
+lab8/esercizio8.4
