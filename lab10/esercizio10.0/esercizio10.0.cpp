@@ -16,6 +16,7 @@ int main() {
     Gnuplot plt;
     RandomGen gen{1};
     const int n_bins{100};
+    plt.redirect_to_png("distributions.png");
     plt.multiplot(2,2, "Distribuzioni");
     
     //Uniform
@@ -58,7 +59,7 @@ int main() {
     plt.set_xrange(-10,10);
     plt.show();
 
-    cout << "Showed graph! Exiting..\n";
+    cout << "Created \"distributions.png\"\n";
 
     return 0;
 }

@@ -7,7 +7,7 @@ using namespace std;
 //RandomGen: x(j+1) = (a*x(j)+b)mod(m)
 class RandomGen {
     public:
-        RandomGen() : a{1664525}, c{1013904223}, m{(unsigned int)pow(2,31)} {cout << m << endl;};
+        RandomGen() : a{1664525}, c{1013904223}, m{(unsigned int)pow(2,31)} {};
         RandomGen(unsigned int seed_) : seed{seed_}, a{1664525}, c{1013904223}, m{(unsigned int)pow(2,31)}{};
         void set_a(unsigned int a_) {a = a_;};
         void set_c(unsigned int c_) {c = c_;};

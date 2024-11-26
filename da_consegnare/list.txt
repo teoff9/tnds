@@ -12,3 +12,6 @@ lab7/esercizio7.2
 lab8/esercizio8.2
 lab8/esercizio8.3
 lab8/esercizio8.4
+lab8/esercizio10.0
+lab8/esercizio10.1
+lab8/esercizio10.2
