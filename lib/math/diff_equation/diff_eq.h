@@ -24,7 +24,7 @@ template <size_t n> class Euler: public DiffEquation<n> {
 //RUNGE KUTTA 4
 template <size_t n> class RK4: public DiffEquation<n> {
     public:
-        virtual array<double,n> step(double t, double h, array<double, n>&x, VectFunction<n> &f) const override {
+        virtual array<double,n> step(double t, double h, array<double, n> &x, VectFunction<n> &f) const override {
             auto k1 = f.eval(t,x);
             auto k2 = f.eval(t + h/2., x + k1*h/2.);
             auto k3 = f.eval(t + h/2., x + k2*h/2.);
