@@ -31,4 +31,39 @@ template <size_t n> class RK4: public DiffEquation<n> {
             auto k4 = f.eval(t + h, x + k3*h );
             return x + h*( k1 + 2.0*k2 + 2.0*k3 + k4 )/6.0;
         }
+        //ATTENZIONE: funziona con sistemi 1d (n=2), modificare all'occorrenza
+        array<double, n> evolve_with_prec(double initial_t, double final_t, double prec, array<double, n> &x, VectFunction<n> &f) const {
+            int N{100};
+            double h{};
+            double xi[2];
+            double t{};
+            array<double, n> x_0 = x;
+            //esegui le due iterazioni
+            for (int i{}; i<2; i++) {
+                N *= (i+1); //inizialmente N poi 2N
+                h = (final_t-initial_t)/N; //arriviamo fino al tempo medio con passo relativo ad N
+                x = x_0;
+                t = initial_t;
+                for (int j{}; j < N; j++ ){
+                    x = step(t, h, x, f);
+                    t += h;
+                }
+                xi[i] = x[0];
+            }
+            //calcola h ottimale
+            h = ((final_t-initial_t)/N) * pow( 15.0*prec/(16.0* abs(xi[0]-x[1])) , 0.25);
+
+            //calcola fino a t tale che non superi t_finale
+            t = initial_t;
+            x = x_0;
+            while (t < final_t-h) {
+                x = step(t, h, x, f);
+                t += h;
+            }
+            //compi l'ultimo passo di integrazione
+            h = final_t-t;
+            x = step(t, h, x, f);
+            
+            return x;
+        }
 };
