@@ -27,10 +27,11 @@ int main() {
     // Gnuplot plt;
     // vector<double> v(10000);
     // for (int j{}; j<10000; j++) {
-    //     v[j] = (p.integrate(f, 0, M_PI/2, 650000, M_PI/2+0.1));
+    //     v[j] = (p.integrate(f, 0, M_PI/2, 25000, M_PI/2+0.1));
     // }
     // plt.histogram(v,100);
     // plt.show();
+    // return 0;
 
     //variabili
     IntegralMC *m;

@@ -7,6 +7,7 @@
 #include <format>
 #include <cmath>
 #include <string>
+#include <iomanip>
 #include "lib10.2/stats.h"
 #include "lib10.2/gplot++.h"
 using namespace std;
@@ -46,7 +47,7 @@ int main() {
 
             //calcola errore se N = 50000
             if (j == 5) {
-                k[i] = sqrt(100*varianza(v));
+                k[i] = sqrt(cases[j]*varianza(v));
             }
         }
     }
@@ -62,9 +63,11 @@ int main() {
     plt.show();
 
     //Calcola passi necessari per avere errore 1e-3
-    cout << "K (mean) " << k[0] << endl; 
-    cout << "K (hit or miss) " << k[1] << endl;
-    cout << "N (mean) " << round(pow((k[0]/0.001), 2)) << endl;
-    cout << "N (hit or miss) " << round(pow((k[1]/0.001), 2)) << endl;
-
+    cout << "N necessario per ottenere precisione 1e-3:\n";
+    cout << "K (mean) \t\t" << k[0] << endl; 
+    cout << "K (hit or miss) \t" << k[1] << endl;
+    cout << "N (mean) \t\t" << round(pow((k[0]/0.001), 2)) << endl;
+    cout << "N (hit or miss) \t" << fixed << setprecision(0) << round(pow((k[1]/0.001), 2)) << endl;
+    //informa che sono stati creati i grafici
+    cout << format("\n => Created 'errors.png', histo_{} and histo_{}\n", names[0], names[1]);
 }

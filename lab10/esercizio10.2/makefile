@@ -16,7 +16,7 @@ histo.o: histo.cpp lib10.2/gplot++.h
 clean:
 	rm esercizio10.2 esercizio10.2.o
 	rm histo.o histo
-clean_al:
+clean_all:
 	rm data/*.txt
 	rm esercizio10.2 esercizio10.2.o
 	rm histo.o histo
