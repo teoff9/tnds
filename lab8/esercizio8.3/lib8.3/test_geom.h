@@ -1,8 +1,8 @@
-//12.11.24 by Matteo Fava
-//Algrebra lineare
+// 12.11.24 by Matteo Fava
+// Algrebra lineare
 
-#include <array>
 #include "geom.h"
+#include <array>
 #include <cassert>
 #include <iostream>
 using namespace std;

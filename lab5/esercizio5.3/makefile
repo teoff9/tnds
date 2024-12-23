@@ -3,5 +3,5 @@ esercizio5.3: esercizio5.3.cpp lib5.3/field.h lib5.3/mat_point.h lib5.3/particle
 
 
 clean:
-	rm *.o esercizio5.3
+	rm esercizio5.3
 

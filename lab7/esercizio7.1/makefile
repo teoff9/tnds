@@ -1,5 +1,5 @@
 
-esercizio7.1: esercizio7.1.o lib7.1/integral.h lib7.1/tests.h
+esercizio7.1: esercizio7.1.o lib7.1/integral.h lib7.1/tests.h lib7.1/gplot++.h
 	g++  -o esercizio7.1 esercizio7.1.o  
 
 esercizio7.1.o: esercizio7.1.cpp

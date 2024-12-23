@@ -3,7 +3,7 @@ lab2/esercizio2.2
 lab3/esercizio3.0
 lab3/esercizio3.1
 lab3/esercizio3.2
-lab4/esercizio4.2
+lab4/esercizio4.0
 lab5/esercizio5.3
 lab6/esercizio6.2
 lab6/esercizio6.3

@@ -127,12 +127,12 @@ private:
   std::vector<double> list_of_yerr;
 
   void check_consistency() const {
-      assert(list_of_x.size() == list_of_y.size());
+    assert(list_of_x.size() == list_of_y.size());
 
-      if(list_of_xerr.size() > 0)
-        assert(list_of_xerr.size() == list_of_x.size());
-      if(list_of_yerr.size() > 0)
-        assert(list_of_yerr.size() == list_of_y.size());
+    if (list_of_xerr.size() > 0)
+      assert(list_of_xerr.size() == list_of_x.size());
+    if (list_of_yerr.size() > 0)
+      assert(list_of_yerr.size() == list_of_y.size());
   }
 
 public:
@@ -157,10 +157,10 @@ public:
   };
 
   enum class TerminalMode {
-	MONO,
-	ANSI,
-	ANSI256,
-	ANSIRGB,
+    MONO,
+    ANSI,
+    ANSI256,
+    ANSIRGB,
   };
 
   Gnuplot(const char *executable_name = "gnuplot", bool persist = true)
@@ -253,34 +253,42 @@ public:
 
   /* Send the plot to the terminal or to a text file */
   bool redirect_to_dumb(const std::string &filename = "",
-                        unsigned int width = 80,
-						unsigned int height = 50,
-						TerminalMode mode = TerminalMode::MONO) {
+                        unsigned int width = 80, unsigned int height = 50,
+                        TerminalMode mode = TerminalMode::MONO) {
     std::stringstream os;
 
-	os << "set terminal dumb size " << width << " " << height;
+    os << "set terminal dumb size " << width << " " << height;
 
-	switch(mode) {
-	case TerminalMode::MONO: os << "mono"; break;
-	case TerminalMode::ANSI: os << "ansi"; break;
-	case TerminalMode::ANSI256: os << "ansi256"; break;
-	case TerminalMode::ANSIRGB: os << "ansirgb"; break;
-	default: os << "mono";
-	}
-	
-	os << "\n";
+    switch (mode) {
+    case TerminalMode::MONO:
+      os << "mono";
+      break;
+    case TerminalMode::ANSI:
+      os << "ansi";
+      break;
+    case TerminalMode::ANSI256:
+      os << "ansi256";
+      break;
+    case TerminalMode::ANSIRGB:
+      os << "ansirgb";
+      break;
+    default:
+      os << "mono";
+    }
 
-	if (! filename.empty()) {
-	  os << "set output '" << filename << "'\n";
-	}
-	
+    os << "\n";
+
+    if (!filename.empty()) {
+      os << "set output '" << filename << "'\n";
+    }
+
     return sendcommand(os);
   }
 
   bool set_title(const std::string &title) {
-	std::stringstream os;
-	os << "set title '" << escape_quotes(title) << "'";
-	return sendcommand(os);
+    std::stringstream os;
+    os << "set title '" << escape_quotes(title) << "'";
+    return sendcommand(os);
   }
 
   /* Set the label on the X axis */
@@ -407,59 +415,62 @@ public:
   }
   /* Add a point to the list of samples to be plotted */
   void add_point(double x, double y) {
-      check_consistency();
+    check_consistency();
 
-      list_of_x.push_back(x);
-      list_of_y.push_back(y);
+    list_of_x.push_back(x);
+    list_of_y.push_back(y);
   }
 
   /* Add a value to the list of samples to be plotted */
   void add_point(double y) {
-      add_point(static_cast<double>(list_of_x.size()), y);
+    add_point(static_cast<double>(list_of_x.size()), y);
   }
 
   /* Return the number of points added by `add_point` */
   int get_num_of_points() const {
-      check_consistency();
+    check_consistency();
 
-      return (int) list_of_x.size();
+    return (int)list_of_x.size();
   }
 
   /* Return the list of abscissas for the points added by `add_point` */
-  const std::vector<double> & get_points_x() const { return list_of_x; }
+  const std::vector<double> &get_points_x() const { return list_of_x; }
 
-    /* Return the list of ordinates for the points added by `add_point` */
-  const std::vector<double> & get_points_y() const { return list_of_y; }
+  /* Return the list of ordinates for the points added by `add_point` */
+  const std::vector<double> &get_points_y() const { return list_of_y; }
 
   /* Create a plot using the values set with the method `add_point` */
   void plot(const std::string &label = "", LineStyle style = LineStyle::LINES) {
-      check_consistency();
+    check_consistency();
 
-      _plot(label, style, false, list_of_x, list_of_y);
+    _plot(label, style, false, list_of_x, list_of_y);
   }
 
-  /* Create a plot with X error bars using the values set with the method `add_point` */
+  /* Create a plot with X error bars using the values set with the method
+   * `add_point` */
   void plot_xerr(const std::string &label = "") {
     check_consistency();
 
     plot_xerr(list_of_x, list_of_y, list_of_xerr, label);
   }
 
-  /* Create a plot with X error bars using the values set with the method `add_point` */
+  /* Create a plot with X error bars using the values set with the method
+   * `add_point` */
   void plot_yerr(const std::string &label = "") {
     check_consistency();
 
     plot_yerr(list_of_x, list_of_y, list_of_yerr, label);
   }
 
-  /* Create a plot with X error bars using the values set with the method `add_point` */
+  /* Create a plot with X error bars using the values set with the method
+   * `add_point` */
   void plot_xyerr(const std::string &label = "") {
     check_consistency();
 
     plot_xyerr(list_of_x, list_of_y, list_of_xerr, list_of_yerr, label);
   }
 
-    template <typename T>
+  template <typename T>
   void histogram(const std::vector<T> &values, size_t nbins,
                  const std::string &label = "",
                  LineStyle style = LineStyle::BOXES) {

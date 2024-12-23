@@ -23,5 +23,11 @@ void test_statistical_functions() {
     //mediana
     assert(_is_close<double>(mediana(d), 3));
 
+    //with stride
+    vector<double> v{1.0, 2.0, 3.0, 4.0, 5.0, 6.0};
+    assert(_is_close<double>(std_dev(v, 1), 1.707825127659933));
+    assert(_is_close<double>(std_dev(v, 2), 1.632993161855452));
+    assert(_is_close<double>(std_dev(v, 3), 1.5));
+
     cout << "Statistical test: passed!\n";
 }
