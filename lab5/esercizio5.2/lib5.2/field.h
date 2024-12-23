@@ -44,7 +44,7 @@ VectorField VectorField::operator+( const VectorField& v) const{
         cerr << "Can't sum two vector fields not in the same point!\n";
         exit(-1);
     }
-    VectorField sum{};
+    VectorField sum{Point3D{get_x(), get_y(), get_z()}};
     sum.set_fx( get_fx() + v.get_fx());
     sum.set_fy( get_fy() + v.get_fy());
     sum.set_fz( get_fz() + v.get_fz());
