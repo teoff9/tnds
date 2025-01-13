@@ -10,7 +10,7 @@
 using namespace std;
 
 //Funzione che controlla se un numero n e' a meno di delta da m
-template <typename T> bool is_close(T n, T m, double delta=1e-7){
+template <typename T> bool is_cl0se(T n, T m, double delta=1e-7){
     return ((double)fabs(n-m) < delta);
 }
 
@@ -31,8 +31,8 @@ void test_euler() {
         t = t + h;
     }
 
-    assert(is_close(x[0], 0.817256, 1e-6));
-    assert(is_close(x[1], 0.652516, 1e-6));
+    assert(is_cl0se(x[0], 0.817256, 1e-6));
+    assert(is_cl0se(x[1], 0.652516, 1e-6));
     cout << "All tests passed for Euler!\n";
 }
 
@@ -52,7 +52,7 @@ void test_rk4(){
         t = t + h;
     }
 
-    assert(is_close(x[0], sin(70.0), 1e-6));
-    assert(is_close(x[1], cos(70.), 1e-6));
+    assert(is_cl0se(x[0], sin(70.0), 1e-6));
+    assert(is_cl0se(x[1], cos(70.), 1e-6));
     cout << "All tests passed for RK4!\n";
 }
