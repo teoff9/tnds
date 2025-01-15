@@ -48,9 +48,10 @@ int main() {
     cout << "\nParte 3\n";
     double prec{5e-5}; //50 micro-m
     rk.evolve_with_prec(0, final_t, prec, x, osc, h);
-    cout << format("Passo di integrazione necessario per avere err={}  : {}",prec, h);
+    cout << format("Passo di integrazione necessario per avere err={}  : h={}, N={}",prec, h, final_t/h);
     cout << "\n";
     x = x0;
+
 
     //PARTE 4
     cout << "\nParte 4\n";

@@ -34,7 +34,7 @@ template <size_t n> class RK4: public DiffEquation<n> {
         }
         //ATTENZIONE: funziona con sistemi 1d (n=2), modificare all'occorrenza
         array<double, n> evolve_with_prec(double initial_t, double final_t, double prec, array<double, n> &x, VectFunction<n> &f, double &wh) const {
-            int N{500};
+            int N{100};
             double h{};
             double xi[2];
             double t{};
@@ -54,7 +54,8 @@ template <size_t n> class RK4: public DiffEquation<n> {
                 xi[i] = x[0];
             }
             //calcola h ottimale
-            h = ((final_t-initial_t)/N) * pow( 15.0*prec/(16.0* abs(xi[0]-x[1])) , 0.25);
+            N = N/2;
+            h = ((final_t-initial_t)/N) * pow( 15.0*prec/(16.0* abs(xi[0]-xi[1])) , 0.25);
 
             wh = h;
 
