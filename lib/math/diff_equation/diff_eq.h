@@ -5,6 +5,7 @@
 #include <array>
 #include "geom.h"
 #include "vect_function.h"
+#include <iostream>
 using namespace std;
 
 //FUNZIONE DIFFERENZIALE BASE
@@ -32,7 +33,7 @@ template <size_t n> class RK4: public DiffEquation<n> {
             return x + h*( k1 + 2.0*k2 + 2.0*k3 + k4 )/6.0;
         }
         //ATTENZIONE: funziona con sistemi 1d (n=2), modificare all'occorrenza
-        array<double, n> evolve_with_prec(double initial_t, double final_t, double prec, array<double, n> &x, VectFunction<n> &f) const {
+        array<double, n> evolve_with_prec(double initial_t, double final_t, double prec, array<double, n> &x, VectFunction<n> &f, double &wh) const {
             int N{100};
             double h{};
             double xi[2];
@@ -44,14 +45,19 @@ template <size_t n> class RK4: public DiffEquation<n> {
                 h = (final_t-initial_t)/N; //arriviamo fino al tempo medio con passo relativo ad N
                 x = x_0;
                 t = initial_t;
-                for (int j{}; j < N; j++ ){
+                while(t<final_t-h){
                     x = step(t, h, x, f);
                     t += h;
                 }
+                h = final_t-t;
+                x = step(t, h, x, f);
                 xi[i] = x[0];
             }
             //calcola h ottimale
-            h = ((final_t-initial_t)/N) * pow( 15.0*prec/(16.0* abs(xi[0]-x[1])) , 0.25);
+            N = N/2;
+            h = ((final_t-initial_t)/N) * pow( 15.0*prec/(16.0* abs(xi[0]-xi[1])) , 0.25);
+
+            wh = h;
 
             //calcola fino a t tale che non superi t_finale
             t = initial_t;
