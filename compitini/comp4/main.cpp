@@ -22,6 +22,8 @@ int main() {
     //PARTE 1
     cout << "\nPARTE 1\n";
     graph(-0.1, 0.1, L, lambda, "500nm.png", 1e-4, 0.00001, d, false, zero);
+    Trapezoid t;
+    assert(is_cl0se_(t.integrate_prec(-d/2, d/2, 1e-4, [=](double t){return 1/d*cos( (sqrt(L*L + (0.05-t)*(0.05-t))-sqrt(L*L+0.05*0.05))/lambda );}), -0.192375, 1e-4));
 
     //PARTE 2
     cout << "\nPARTE 2\n";
