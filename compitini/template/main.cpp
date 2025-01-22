@@ -8,6 +8,11 @@
 using namespace std;
 
 int main() {
+    //tests
+
+    //variabili
+
+    //PARTE 1
 
     return 0;
 }
