@@ -1,5 +1,0 @@
-ssh matteoluca.fava@tolab.fisica.unimi.it
-/home/comune/labTNDS_aa2425_esercizi/Turno_T2
-scp FILE matteoluca.fava@tolab.fisica.unimi.it:/...... 
-
-clang format!!
